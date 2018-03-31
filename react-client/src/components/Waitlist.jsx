@@ -7,7 +7,7 @@ const Waitlist = (props) => {
     <div>
       <h1>Waiting list</h1>
       {props.items.map((item, index) => {
-        return (<WaitlistItem key={index} user={item}/>);
+        return (<WaitlistItem key={index} index={index} user={item}/>);
       })}
     </div>
   );

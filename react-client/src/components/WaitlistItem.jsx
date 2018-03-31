@@ -3,6 +3,7 @@ import React from 'react';
 const WaitlistItem = (props) => {
   return (
     <div>
+      <div>Waiting order: {props.index + 1}</div>
       <div>Name: {props.user.name}</div>
       <div>Phone: {props.user.phone}</div>
       <div>party: {props.user.party}</div>
