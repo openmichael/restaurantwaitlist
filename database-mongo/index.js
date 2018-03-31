@@ -12,8 +12,10 @@ db.once('open', function() {
 });
 
 var itemSchema = mongoose.Schema({
-  quantity: Number,
-  description: String
+  name: String,
+  phone: String,
+  party: Number,
+  date: Date
 });
 
 var Item = mongoose.model('Item', itemSchema);
@@ -28,4 +30,9 @@ var selectAll = function(callback) {
   });
 };
 
+var insert = function(user) {
+  return Item.insertMany(user);
+};
+
 module.exports.selectAll = selectAll;
+module.exports.insert = insert;
