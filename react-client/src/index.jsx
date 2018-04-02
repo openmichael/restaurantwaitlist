@@ -1,49 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Waitlist from './components/Waitlist';
-import Inputblock from './components/Inputblock';
+import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 
-import axios from 'axios';
+import Customer from './components/Customer';
+import Server from './components/Server';
+
+import './css/main.scss';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      status: 'loading',
-      items: []
+
     }
-  }
-
-  componentDidMount() {
-    this.getData();
-  }
-
-  getData() {
-    axios.get('/items')
-      .then((response) => {
-        this.setState({
-          status: 'done',
-          items: response.data
-        });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
   }
 
   render () {
     return (
-      <div>
-        {this.state.status === 'loading' ?
-          (<div>Loading...</div>) :
-          (
-            <div>
-              <Waitlist items={this.state.items} />
-              <Inputblock getData={this.getData.bind(this)}/>
-            </div>
-          )
-        }
-      </div>
+      <BrowserRouter>
+        <div>
+          <Switch>
+            <Route exact path='/' component={Customer} />
+            <Route path='/server' component={Server} />
+          </Switch>
+        </div>
+      </BrowserRouter>
     );
   }
 }

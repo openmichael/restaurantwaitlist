@@ -34,5 +34,10 @@ var insert = function(user) {
   return Item.insertMany(user);
 };
 
+var remove = function(_id) {
+  return Item.remove({ _id: _id });
+}
+
 module.exports.selectAll = selectAll;
 module.exports.insert = insert;
+module.exports.remove = remove;
