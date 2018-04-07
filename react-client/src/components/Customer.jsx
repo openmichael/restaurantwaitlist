@@ -15,7 +15,7 @@ class Customer extends React.Component {
   }
 
   componentDidMount() {
-    this.getData();
+    setInterval(() => {this.getData()}, 3000);
   }
 
   getData() {
