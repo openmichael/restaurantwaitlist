@@ -14,19 +14,6 @@ class CustomerWaitlistItem extends React.Component {
     this.waitTime();
   };
 
-  removeUser(event) {
-      // console.log(props.user._id);
-      axios.post('/remove_user', {
-          _id: this.props.user._id
-        })
-        .then((response) => {
-          console.log(response);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-  };
-
   waitTime() {
     let curTime = new Date();
     let time = new Date(this.props.user.date);
@@ -43,10 +30,6 @@ class CustomerWaitlistItem extends React.Component {
         <td>{this.props.user.name}</td>
         <td>{this.props.user.party}</td>
         <td>{this.state.time} minutes</td>
-        <td>
-          <button type="button" onClick={this.removeUser.bind(this)}>Served</button>
-          <button type="button">Notify Customer</button>
-        </td>
       </tr>
     );
   };

@@ -12,7 +12,6 @@ const CustomerWaitlist = (props) => {
             <th>Name</th>
             <th>Party</th>
             <th>Waiting Time</th>
-            <th>Options</th>
           </tr>
           {props.items.map((item, index) => {
             return (
