@@ -1,7 +1,7 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/restaurant');
 
-var db = mongoose.connection;
+const db = mongoose.connection;
 
 db.on('error', function() {
   console.log('mongoose connection error');
@@ -11,16 +11,16 @@ db.once('open', function() {
   console.log('mongoose connected successfully');
 });
 
-var itemSchema = mongoose.Schema({
+const itemSchema = mongoose.Schema({
   name: String,
   phone: String,
   party: Number,
   date: Date
 });
 
-var Item = mongoose.model('Item', itemSchema);
+const Item = mongoose.model('Item', itemSchema);
 
-var selectAll = function(callback) {
+const selectAll = function(callback) {
   Item.find({}, function(err, items) {
     if(err) {
       callback(err, null);
@@ -30,11 +30,11 @@ var selectAll = function(callback) {
   });
 };
 
-var insert = function(user) {
+const insert = function(user) {
   return Item.insertMany(user);
 };
 
-var remove = function(_id) {
+const remove = function(_id) {
   return Item.remove({ _id: _id });
 }
 
