@@ -36,6 +36,18 @@ class ServerWaitlistItem extends React.Component {
     });
   };
 
+  notifyUser() {
+    axios.post('/notifyUser', {
+        phone: this.props.user.phone
+      })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   render() {
     return (
       <tr>
@@ -46,7 +58,7 @@ class ServerWaitlistItem extends React.Component {
         <td>{this.state.time} minutes</td>
         <td>
           <button type="button" onClick={this.removeUser.bind(this)}>Served</button>
-          <button type="button">Notify Customer</button>
+          <button type="button" onClick={this.notifyUser.bind(this)}>Notify Customer</button>
         </td>
       </tr>
     );

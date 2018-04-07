@@ -3,6 +3,12 @@ const path = require('path');
 const bodyParser = require('body-parser');
 
 const items = require('../database-mongo');
+require('dotenv').config()
+
+const client = require('twilio')(
+  process.env.TWILIO_ACCOUNT_SID,
+  process.env.TWILIO_AUTH_TOKEN
+);
 
 const app = express();
 app.use(bodyParser.json());
@@ -43,6 +49,20 @@ app.post('/remove_user', (req, res) => {
     });
 
   res.sendStatus(200);
+});
+
+app.post('/notifyUser', (req, res) => {
+  console.log(req.body.phone);
+  console.log(process.env.TWILIO_AUTH_TOKEN);
+
+  client.messages.create({
+    from: process.env.TWILIO_PHONE_NUMBER,
+    to: req.body.phone,
+    body: "Hello from michael!"
+  })
+    .then((messsage) => console.log(message.sid));
+
+  res.sendStatus(201);
 });
 
 app.get('/*', (req, res) => {
