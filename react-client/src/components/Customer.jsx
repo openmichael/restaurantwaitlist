@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import CustomerWaitlist from './CustomerWaitlist';
 import Inputblock from './Inputblock';
 
+import '../css/Customer.scss';
+
 import axios from 'axios';
 
 class Customer extends React.Component {
@@ -37,9 +39,13 @@ class Customer extends React.Component {
         {this.state.status === 'loading' ?
           (<div>Loading...</div>) :
           (
-            <div>
-              <CustomerWaitlist items={this.state.items} />
-              <Inputblock getData={this.getData.bind(this)}/>
+            <div className="customerBlock">
+              <div className="customerWaitlist">
+                <CustomerWaitlist items={this.state.items} />
+              </div>
+              <div className="inputblock">
+                <Inputblock getData={this.getData.bind(this)}/>
+              </div>
             </div>
           )
         }

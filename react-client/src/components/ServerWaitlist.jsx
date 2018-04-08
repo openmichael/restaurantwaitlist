@@ -4,7 +4,7 @@ import ServerWaitlistItem from './ServerWaitlistItem';
 const ServerWaitlist = (props) => {
   return (
     <div>
-      <h1>Waiting list</h1>
+      <h1>Server portal</h1>
       <table>
         <tbody>
           <tr>

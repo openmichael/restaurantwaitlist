@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import ServerWaitlist from './ServerWaitlist';
 import Inputblock from './Inputblock';
 
+import '../css/Server.scss'
+
 import axios from 'axios';
 
 class Server extends React.Component {
@@ -37,10 +39,13 @@ class Server extends React.Component {
         {this.state.status === 'loading' ?
           (<div>Loading...</div>) :
           (
-            <div>
-              <h1>Server portal</h1>
-              <ServerWaitlist items={this.state.items} />
-              <Inputblock getData={this.getData.bind(this)}/>
+            <div className="serverblock">
+              <div className="serverWaitlist">
+                <ServerWaitlist items={this.state.items} />
+              </div>
+              <div className="serverInputblock">
+                <Inputblock getData={this.getData.bind(this)}/>
+              </div>
             </div>
           )
         }

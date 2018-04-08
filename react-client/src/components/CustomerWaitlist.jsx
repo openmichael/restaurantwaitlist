@@ -1,9 +1,11 @@
 import React from 'react';
 import CustomerWaitlistItem from './CustomerWaitlistItem';
 
+import '../css/CustomerWaitlist.scss';
+
 const CustomerWaitlist = (props) => {
   return (
-    <div>
+    <div className="customwaitlist">
       <h1>Waiting list</h1>
       <table>
         <tbody>

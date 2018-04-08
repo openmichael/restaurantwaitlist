@@ -18,7 +18,7 @@ class App extends React.Component {
   render () {
     return (
       <BrowserRouter>
-        <div>
+        <div className="main_block">
           <Switch>
             <Route exact path='/' component={Customer} />
             <Route path='/server' component={Server} />
